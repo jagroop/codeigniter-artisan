@@ -37,6 +37,6 @@ class Logs extends Admin_Controller {
 
   public function read($logName) {
     $file = $this->logsPath . $logName . '.log';
-    echo file_get_contents($file, NULL, NULL, 0, 20000);
+    echo file_get_contents($file, NULL, NULL, 0, 10000);
   }
 }

@@ -1,0 +1,14 @@
+.pagination {
+float: right;
+}
+.dataTables_info {
+	display: none;
+}
+.dataTables_filter
+{
+	float: right;
+}
+.dataTables_filter label input
+{
+	margin-left: 7px;
+}

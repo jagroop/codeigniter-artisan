@@ -1,0 +1,13 @@
+{
+	"name": "jagroop/codeigniter-artisan",
+	"description": "Codeigniter Scaffold for making better web application and rest Apps with writing less code ",
+	"type": "project",
+	"homepage": "https://github.com/jagroop/codeigniter-artisan",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.3.7"
+	},
+	"suggest": {
+		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	}
+}

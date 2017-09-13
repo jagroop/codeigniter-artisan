@@ -24,8 +24,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://github.com/jagroop" target="_blank">Github</a></li>
-                        <li><a href="https://twitter.com/dev_jagroop" target="_blank">Twitter</a></li>
+                        <li><a href="#">Logout</a></li>
                     </ul>
                 </div>
             </div>

@@ -21,7 +21,7 @@ class DB_Log
             foreach ($CI->db->queries as $key => $query) 
             { 
                 $query = '<code>' . str_parse($query) . '</code>';
-                $sql  = "[SQL] [" . $dayTime . "]" . PHP_EOL . PHP_EOL . $query . PHP_EOL . PHP_EOL;
+                $sql  = "[SQL] [" . $dayTime . "] [".round($times[$key], 6)."]" . PHP_EOL . PHP_EOL . $query . PHP_EOL . PHP_EOL;
                 $sql .= file_get_contents($filepath);
                 file_put_contents($filepath, $sql);  
             }

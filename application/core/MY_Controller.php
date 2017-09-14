@@ -27,8 +27,7 @@ class Admin_Controller extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->data['pagetitle'] = config_item('name');
-		if(!$this->session->userdata('admin_id')){
+		if(!$this->session->userdata('logged_in')){
     		return redirect(base_url() . 'admin/login');  
     		exit;
     	}

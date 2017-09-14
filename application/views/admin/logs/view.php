@@ -45,11 +45,12 @@
 
     // Comment this code in order to remove mouse events to pause logging.
     // --->
-    $('.data').mouseover(function(){
-      pause = true;
-    }).mouseout(function(){
-      pause = false;
-    }); // <---
+    // $('.data').mouseover(function(){
+    //   pause = true;
+    // }).mouseout(function(){
+    //   pause = false;
+    // }); 
+    // <---
 
   });
   var url = '<?php echo url('admin/logs/read/' . $log) ?>';

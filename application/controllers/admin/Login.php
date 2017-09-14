@@ -17,35 +17,24 @@ class Login extends CI_Controller {
 			if($this->form_validation->run() == FALSE){
 				return $this->load->view('admin/login');
 			}  
-			$email = $this->input->post('email');
-			$password = $this->input->post('password');	
-			$admin = $this->db->get_where('admin', ['email' => $email, 'password' => sha1($password)])->row();
-			
-			if(count($admin) > 0){
-				$adminSessionData = array(
-				 'admin_id' => $admin->id,
-				 'admin_name'=> $admin->name,
-				 'email'=> $admin->email,
+			$data = $this->auth->checkAuth();
+			if(count($data) > 0){
+				$admin = array(
+				 'admin_id' => $data->id,
+				 'name'=> $data->name,
 				 'logged_in' =>TRUE
 				 );  				 			                                 
-				$this->session->set_userdata($adminSessionData);  
-				$admin_id = $this->session->userdata('admin_id');
-				$admin_name = $this->session->userdata('admin_name');
-				if ($admin_id == 1 ){
-					return redirect(base_url() . 'admin/dashboard',$adminSessionData );
-				}
-				else{
-					return redirect(base_url() . 'admin/login' );
-				}
+				$this->session->set_userdata($admin);  
+				return redirect(base_url() . 'admin/dashboard');	
 			}
 		    $this->session->set_flashdata('invalid_credential', 'Invalid email or password');
 		    return redirect(base_url() . 'admin/login');    
-	   }
+	    }
 	   return $this->load->view('admin/login');
 	}
-/**
-* logout..
-*/
+	/**
+	* logout..
+	*/
 	public function logout() {
         $this->session->sess_destroy();
         redirect('admin/login');

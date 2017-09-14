@@ -66,3 +66,12 @@ if (!function_exists('active')) {
     return ($CI->uri->segment(2) == $route) ? 'active' : '';
  }
 }
+
+if ( ! function_exists('admin_details')){
+	function admin_details($user_id=""){
+		$ci =& get_instance();
+		$ci->load->database();
+		$data = $ci->db->get_where('admin')->row();
+		return $data;
+	}
+ }

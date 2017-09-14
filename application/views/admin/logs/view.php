@@ -42,9 +42,19 @@
       pause = false;
       return el.text("Pause");
     });
+
+    // Comment this code in order to remove mouse events to pause logging.
+    // --->
+    $('.data').mouseover(function(){
+      pause = true;
+    }).mouseout(function(){
+      pause = false;
+    }); // <---
+
   });
   var url = '<?php echo url('admin/logs/read/' . $log) ?>';
   setInterval(function(){
+    console.log(pause, 'isPaused');
     if(pause === false)
     {
       $.get(url, function(res, status){

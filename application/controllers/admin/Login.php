@@ -17,7 +17,9 @@ class Login extends CI_Controller {
 			if($this->form_validation->run() == FALSE){
 				return $this->load->view('admin/login');
 			}  
-			$data = $this->auth->checkAuth();
+			
+			// $data = $this->auth->checkAuth();
+			$data = admin_details(1);
 			if(count($data) > 0){
 				$admin = array(
 				 'admin_id' => $data->id,

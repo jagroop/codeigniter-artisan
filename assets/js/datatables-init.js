@@ -19,9 +19,15 @@ $(document).ready(function(){
             "orderable": false,
         },
         ], 
+        dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
+        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
    return table;
  };
+
 
  //..
 });

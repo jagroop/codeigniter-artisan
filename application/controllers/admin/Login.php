@@ -3,12 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+	public function __construct() {
+		parent::__construct();				
+
+	}
+
 	/**
 	 * Admin Login
 	 *
 	 * @return void
 	 */
-	public function index() {
+	public function index() {	
+			
+		if($this->session->userdata('logged_in')){
+			return redirect('admin/dashboard'); 
+		}
 
 		if($this->input->method() == "post")
 		{
@@ -41,6 +50,6 @@ class Login extends CI_Controller {
 	 */
 	public function logout() {
         $this->session->sess_destroy();
-        redirect('admin/login');
+        redirect(base_url() . 'admin/login');
 	}
 }

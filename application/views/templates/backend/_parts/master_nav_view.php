@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <?php $admin_name = $this->session->userdata('admin_name'); 
+            <?php $admin_name = $this->session->userdata('admin_name'); 
                       echo $admin_name; ?>
             </ul>
 

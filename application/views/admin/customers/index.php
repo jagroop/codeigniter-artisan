@@ -26,7 +26,7 @@
             </tfoot>
         </table>
 <script type="text/javascript"> 
-$(document).ready(function() {   
- $.fn.dtable("#customersTable", "<?php echo url('admin/customers/ajax_list')?>");
-});
+$(document).ready(function() {
+    $.fn.dtable("#customersTable", "<?php echo url('admin/customers/ajax_list')?>");
+});   
 </script>

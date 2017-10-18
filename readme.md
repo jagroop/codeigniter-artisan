@@ -10,6 +10,9 @@ Makes it easy for you to write webapps and REST APIs with less code.
 - JWT Authentication (APIs).
 - Simplified Request Validation.
 - Query Logging.
+- Internal Http Requests (Non-Blocking)
+- Mailer Library (PHP-Mailer)
+- Push Notififications (Android & IOS)
 
 ```php
 $this->validate($this->input->post(), [

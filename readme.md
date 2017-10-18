@@ -5,14 +5,14 @@ Makes it easy for you to write webapps and REST APIs with less code.
 ## Features
 
 - Templating.
+- Query Logging.
 - Ajax DataTables.
 - Laravel Helpers.
 - JWT Authentication (APIs).
-- Simplified Request Validation.
-- Query Logging.
-- Internal Http Requests (Non-Blocking)
 - Mailer Library (PHP-Mailer)
+- Simplified Request Validation.
 - Push Notififications (Android & IOS)
+- Internal Http Requests (Non-Blocking)
 
 ```php
 $this->validate($this->input->post(), [

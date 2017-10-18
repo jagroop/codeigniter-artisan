@@ -6,8 +6,8 @@ Makes it easy for you to write webapps and REST APIs with less code.
 
 - Templating.
 - Query Logging.
-- Ajax DataTables.
 - Laravel Helpers.
+- Ajax DataTables.
 - JWT Authentication (APIs).
 - Mailer Library (PHP-Mailer)
 - Simplified Request Validation.

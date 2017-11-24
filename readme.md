@@ -3,29 +3,50 @@
 Makes it easy for you to write webapps and REST APIs with less code.
 
 ## Features
-
-- Templating
-- Query Logging
 - Laravel Helpers
-- Ajax DataTables
 - JWT Authentication (APIs)
 - Mailer Library (PHP-Mailer)
 - Simplified Request Validation
-- Push Notififications (Android & IOS)
-- Internal Http Requests (Non-Blocking)
 
 ```php
 $this->validate($this->input->post(), [
-	'email' => 'required|valid_email|unique,users:email',
-	'password' => 'required',
+  'email' => 'required|valid_email|unique,users:email',
+  'password' => 'required',
 ]);
 
 //...
 
 $this->validate($this->input->post(), [
-	'user_id' => 'required|exist,users:id'
+  'user_id' => 'required|exist,users:id'
 ]);
 ```
+
+- Push Notififications (Android & IOS)
+
+```php
+$this->notification->send($user, [
+  'message' => 'Hello John'
+]);
+```
+- Internal Http Requests (Non-Blocking)
+
+```php
+$url = base_url() . 'Controller/method';
+
+$this->async->run($run, [
+  'name'        => 'Bruce Wayne',
+  'super_power' => 'He is Rich',
+]);
+```
+
+- Templating
+
+```php
+$this->data['name'] = "Clark Kent";
+return $this->render('view');
+```
+- Query Logging
+- Ajax DataTables
 
 ## Getting Started
 

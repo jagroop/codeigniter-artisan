@@ -46,7 +46,7 @@ $this->data['name'] = "Clark Kent";
 return $this->render('view');
 ```
 - Query Logging :memo:
-![query logs](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/datatables.png "Query logs")
+![query logs](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/query_log.png "Query logs")
 
 - Ajax DataTables as a service :tada:
 ![data tables](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/datatables.png "Ajax DataTables")

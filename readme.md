@@ -3,10 +3,10 @@
 Makes it easy for you to write webapps and REST APIs with less code.
 
 ## Features
-- Laravel Helpers
-- JWT Authentication (APIs)
-- Mailer Library (PHP-Mailer)
-- Simplified Request Validation
+- Laravel Helpers :bulb:
+- JWT Authentication (APIs) :alien:
+- Mailer Library (PHP-Mailer) :page_facing_up:
+- Simplified Request Validation :robot:
 
 ```php
 $this->validate($this->input->post(), [
@@ -21,14 +21,14 @@ $this->validate($this->input->post(), [
 ]);
 ```
 
-- Push Notififications (Android & IOS)
+- Push Notififications (Android & IOS) :speech_balloon:
 
 ```php
 $this->notification->send($user, [
   'message' => 'Hello John'
 ]);
 ```
-- Internal Http Requests (Non-Blocking)
+- Internal Http Requests (Non-Blocking) :rocket:
 
 ```php
 $url = base_url() . 'Controller/method';
@@ -39,14 +39,17 @@ $this->async->run($run, [
 ]);
 ```
 
-- Templating
+- Templating :bookmark:
 
 ```php
 $this->data['name'] = "Clark Kent";
 return $this->render('view');
 ```
-- Query Logging
-- Ajax DataTables
+- Query Logging :memo:
+![query logs](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/datatables.png "Query logs")
+
+- Ajax DataTables as a service :tada:
+![data tables](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/datatables.png "Ajax DataTables")
 
 ## Getting Started
 

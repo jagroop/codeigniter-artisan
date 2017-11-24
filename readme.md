@@ -4,6 +4,15 @@ Makes it easy for you to write webapps and REST APIs with less code.
 
 ## Features
 - Laravel Helpers :bulb:
+
+```php
+str_random(30);
+str_limit($str, 20);
+//...
+array_only($array, $keys);
+//.. check laravel_helper.php for more..
+```
+
 - JWT Authentication (APIs) :alien:
 ![jwt](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/jwt.png "JWT Authentication")
 

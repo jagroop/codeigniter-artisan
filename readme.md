@@ -5,7 +5,19 @@ Makes it easy for you to write webapps and REST APIs with less code.
 ## Features
 - Laravel Helpers :bulb:
 - JWT Authentication (APIs) :alien:
+![jwt](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/jwt.png "JWT Authentication")
+
 - Mailer Library (PHP-Mailer) :page_facing_up:
+
+```php
+// Email Templates are in /path/to/app/views/emails/
+$user = $this->db->get_where('users', ['id' => 123])->row();
+$this->mailer->send('email_template', compact('user'))
+      ->to('john@gmail.com')
+      ->subject('Meeting at 9AM.')
+      ->deliver();
+```
+
 - Simplified Request Validation :robot:
 
 ```php

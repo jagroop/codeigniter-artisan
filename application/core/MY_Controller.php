@@ -65,12 +65,12 @@ class Rest_Controller extends CI_Controller {
     $this->config->load('auth');
 
     $this->authConfig = [
-      'ENABLE_JWT_AUTH' => config_item('ENABLE_JWT_AUTH'),
+      'ENABLE_JWT_AUTH'  => config_item('ENABLE_JWT_AUTH'),
       'ACCESS_TOKEN_KEY' => config_item('ACCESS_TOKEN_KEY'),
-      'USER_ID_KEY' => config_item('USER_ID_KEY'),
-      'CONSUMER_KEY' => config_item('CONSUMER_KEY'),
-      'CONSUMER_SECRET' => config_item('CONSUMER_SECRET'),
-      'CONSUMER_TTL' => config_item('CONSUMER_TTL'),
+      'USER_ID_KEY'      => config_item('USER_ID_KEY'),
+      'CONSUMER_KEY'     => config_item('CONSUMER_KEY'),
+      'CONSUMER_SECRET'  => config_item('CONSUMER_SECRET'),
+      'CONSUMER_TTL'     => config_item('CONSUMER_TTL'),
     ];
 
     header('Content-Type: application/json');

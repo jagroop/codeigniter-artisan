@@ -5,24 +5,13 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `admin` (`id`, `email`, `password`) VALUES
-(1, 'admin@admin.com',  '$2y$10$j57Dn6EOz5oX4ocbZDSJZeIIKi4Ejr3qPUfzs7HhRAYzYG0Ipw0Si');
-
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE `customers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(50) NOT NULL,
   `LastName` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
+  `password` varchar(150) DEFAULT NULL,
   `phone` varchar(50) NOT NULL DEFAULT '',
   `address` varchar(50) NOT NULL DEFAULT '',
   `city` varchar(50) NOT NULL DEFAULT '',
@@ -31,7 +20,7 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `customers` (`id`, `FirstName`, `LastName`, `email`, `password`, `phone`, `address`, `city`, `country`) VALUES
-(1, 'Carine ',  'Schmitt',  'test@gmail.com', '$2y$10$yszo7jjxbWu3jnuCyin3BO5ifXGGm/u9o73NI0YASff', '40.32.2555', '54, rue Royale', 'Nantes', 'France'),
+(1, 'Carine ',  'Schmitt',  'test@gmail.com', '$2y$10$JHNB7dWic2KhKz3KBASiGuRByRi1FUMVwUirNcll.eQQg5nv50nCy', '40.32.2555', '54, rue Royale', 'Nantes', 'France'),
 (2, 'Jean', 'King', NULL, NULL, '7025551838', '8489 Strong St.',  'Las Vegas',  'USA'),
 (3, 'Peter',  'Ferguson', NULL, NULL, '03 9520 4555', '636 St Kilda Road',  'Melbourne',  'Australia'),
 (4, 'Janine ',  'Labrune',  NULL, NULL, '40.67.8555', '67, rue des Cinquante Otages', 'Nantes', 'France'),
@@ -154,4 +143,4 @@ INSERT INTO `customers` (`id`, `FirstName`, `LastName`, `email`, `password`, `ph
 (121, 'Valarie',  'Franco', NULL, NULL, '6175552555', '6251 Ingle Ln.', 'Boston', 'USA'),
 (122, 'Tony', 'Snowden',  NULL, NULL, '+64 9 5555500',  'Arenales 1938 3\'A\'', 'Auckland  ', 'New Zealand');
 
--- 2017-11-24 11:29:38
+-- 2017-11-24 13:23:38

@@ -3,13 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends Rest_Controller {
 
+  public function generatePassword()  {
+      $password = password_hash('secret', PASSWORD_BCRYPT);
+      echo $password;
+  }
+
 	public function register() {
 		//Register Method is safe from JWT Verification
 	}
 
 	/**
 	 * User Login Function
-	 *
+	 * secret -> $2y$10$HvB38TKOWsBMod4vt4Bkoe7w2gXbmnWX6qFCAcV6rBE7J7L4eUyEu
 	 * @return void
 	 */
 	public function login() {

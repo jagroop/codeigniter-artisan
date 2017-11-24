@@ -6,6 +6,7 @@ class Front_Controller extends CI_Controller {
 
   public function __construct() {
     parent::__construct();
+    $this->data['pagetitle'] = config_item('name');
   }
 
   protected function render($the_view = NULL, $template = 'master') {
@@ -30,7 +31,8 @@ class Admin_Controller extends CI_Controller {
     if(!$this->session->userdata('logged_in')){
         return redirect(base_url() . 'admin/login');  
         exit;
-      }
+    }
+    $this->data['pagetitle'] = config_item('name');
   }
 
   protected function render($the_view = NULL, $template = 'master') {

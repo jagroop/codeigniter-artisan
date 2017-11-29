@@ -54,7 +54,7 @@ $this->notification->send($user, [
 ```php
 $url = base_url() . 'Controller/method';
 
-$this->async->run($run, [
+$this->async->run($url, [
   'name'        => 'Bruce Wayne',
   'super_power' => 'He is Rich',
 ]);

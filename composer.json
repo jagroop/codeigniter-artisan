@@ -5,7 +5,9 @@
 	"homepage": "https://github.com/jagroop/codeigniter-artisan",
 	"license": "MIT",
 	"require": {
-		"php": ">=5.3.7"
+		"php": ">=5.3.7",
+    "phpmailer/phpmailer": "^5.2",
+    "nesbot/carbon": "^1.22"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

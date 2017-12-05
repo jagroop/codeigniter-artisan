@@ -7,7 +7,8 @@
 	"require": {
 		"php": ">=5.3.7",
     "phpmailer/phpmailer": "^5.2",
-    "nesbot/carbon": "^1.22"
+    "nesbot/carbon": "^1.22",
+		"vlucas/phpdotenv": "^2.4"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

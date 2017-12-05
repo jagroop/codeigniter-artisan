@@ -78,6 +78,7 @@ Its simple :
 
 ```bash
 $ git clone https://github.com/jagroop/codeigniter-artisan.git
+$ mv application/.env.example application/.env
 $ cd codeigniter-artisan
 $ php -S localhost:8000 # Now visit http://localhost:8000
 ```

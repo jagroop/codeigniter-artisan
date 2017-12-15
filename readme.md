@@ -72,11 +72,23 @@ Its simple :
 
 ```bash
 $ git clone https://github.com/jagroop/codeigniter-artisan.git
-$ mv application/.env.example application/.env
+$ cp application/.env.example application/.env
 $ cd codeigniter-artisan
+```
+ - Change configuration in __application/.env__
+ - Import the DB __database.sql__
+
+```bash
 $ php -S localhost:8000 # Now visit http://localhost:8000
 ```
+## Admin Panel
+> http://localhost:8000/admin
 
+Login Details:
+```
+admin@admin.com
+admin
+```
 ### Prerequisites
 
 PHP >= 5.3
@@ -94,7 +106,6 @@ Fork this repository, make changes and open a pull request.
 ## Authors
 
 * **Jagroop Singh** - *Initial work* - [jagroop](https://github.com/jagroop)
-
 
 ## License
 

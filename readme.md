@@ -71,9 +71,9 @@ return $this->render('view');
 Its simple :
 
 ```bash
-$ git clone https://github.com/jagroop/codeigniter-artisan.git
+$ git clone https://github.com/jagroop/codeigniter-artisan.git project-name
 $ cp application/.env.example application/.env
-$ cd codeigniter-artisan
+$ cd project-name
 ```
  - Change configuration in __application/.env__
  - Import the DB __database.sql__

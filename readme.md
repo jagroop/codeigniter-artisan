@@ -3,15 +3,15 @@
 Makes it easy for you to write webapps and REST APIs with less code.
 
 ## Features
-- JWT Authentication (APIs) :alien:
-- Query Logging :memo:
-- Ajax DataTables as a service :tada:
-- Laravel Helpers :bulb:
-- Mailer Library (PHP-Mailer) :page_facing_up:
-- Simplified Request Validation :robot:
-- Push Notififications (Android & IOS) :speech_balloon:
-- Internal Http Requests (Non-Blocking) :rocket:
 - Templating :bookmark:
+- Query Logging :memo:
+- Laravel Helpers :bulb:
+- JWT Authentication (APIs) :alien:
+- Ajax DataTables as a service :tada:
+- Simplified Request Validation :robot:
+- Mailer Library (PHP-Mailer) :page_facing_up:
+- Internal Http Requests (Non-Blocking) :rocket:
+- Push Notififications (Android & IOS) :speech_balloon:
 
 Check snippets for above features [here](https://github.com/jagroop/codeigniter-artisan/blob/master/snippets.md)
 

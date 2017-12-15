@@ -3,6 +3,9 @@
 Makes it easy for you to write webapps and REST APIs with less code.
 
 ## Features
+- JWT Authentication (APIs) :alien:
+- Query Logging :memo:
+- Ajax DataTables as a service :tada:
 - Laravel Helpers :bulb:
 
 ```php
@@ -12,8 +15,6 @@ str_limit($str, 20);
 array_only($array, $keys);
 //.. check laravel_helper.php for more..
 ```
-
-- JWT Authentication (APIs) :alien:
 
 - Mailer Library (PHP-Mailer) :page_facing_up:
 
@@ -65,10 +66,6 @@ $this->async->run($url, [
 $this->data['name'] = "Clark Kent";
 return $this->render('view');
 ```
-- Query Logging :memo:
-
-- Ajax DataTables as a service :tada:
-
 ## Getting Started
 
 Its simple :

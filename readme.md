@@ -14,7 +14,6 @@ array_only($array, $keys);
 ```
 
 - JWT Authentication (APIs) :alien:
-![jwt](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/jwt.png "JWT Authentication")
 
 - Mailer Library (PHP-Mailer) :page_facing_up:
 
@@ -67,10 +66,8 @@ $this->data['name'] = "Clark Kent";
 return $this->render('view');
 ```
 - Query Logging :memo:
-![query logs](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/query_log.png "Query logs")
 
 - Ajax DataTables as a service :tada:
-![data tables](https://raw.githubusercontent.com/jagroop/codeigniter-artisan/master/screenshots/datatables.png "Ajax DataTables")
 
 ## Getting Started
 

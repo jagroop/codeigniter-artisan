@@ -1,4 +1,4 @@
-- Laravel Helpers :bulb:
+## Laravel Helpers :bulb:
 
 ```php
 str_random(30);
@@ -8,7 +8,7 @@ array_only($array, $keys);
 //.. check laravel_helper.php for more..
 ```
 
-- Mailer Library (PHP-Mailer) :page_facing_up:
+## Mailer Library (PHP-Mailer) :page_facing_up:
 
 ```php
 // Email Templates are in /path/to/app/views/emails/
@@ -19,7 +19,7 @@ $this->mailer->send('email_template', compact('user'))
       ->deliver();
 ```
 
-- Simplified Request Validation :robot:
+## Simplified Request Validation :robot:
 
 ```php
 $this->validate($this->input->post(), [
@@ -34,14 +34,14 @@ $this->validate($this->input->post(), [
 ]);
 ```
 
-- Push Notififications (Android & IOS) :speech_balloon:
+## Push Notififications (Android & IOS) :speech_balloon:
 
 ```php
 $this->notification->send($user, [
   'message' => 'Hello John'
 ]);
 ```
-- Internal Http Requests (Non-Blocking) :rocket:
+## Internal Http Requests (Non-Blocking) :rocket:
 
 ```php
 $url = base_url() . 'Controller/method';
@@ -52,7 +52,7 @@ $this->async->run($url, [
 ]);
 ```
 
-- Templating :bookmark:
+## Templating :bookmark:
 
 ```php
 $this->data['name'] = "Clark Kent";

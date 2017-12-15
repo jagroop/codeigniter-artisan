@@ -5,6 +5,7 @@
 ```php
 str_random(30);
 str_limit($str, 20);
+str_parse($str);
 //...
 array_only($array, $keys);
 //.. check laravel_helper.php for more..

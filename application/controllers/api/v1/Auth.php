@@ -14,7 +14,6 @@ class Auth extends Rest_Controller {
 
 	/**
 	 * User Login Function
-	 * secret -> $2y$10$HvB38TKOWsBMod4vt4Bkoe7w2gXbmnWX6qFCAcV6rBE7J7L4eUyEu
 	 * @return void
 	 */
 	public function login() {

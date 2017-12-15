@@ -22,6 +22,7 @@ Its simple :
 ```bash
 $ git clone https://github.com/jagroop/codeigniter-artisan.git project-name
 $ cp application/.env.example application/.env
+$ touch application/logs/logs.log && chmod 777 application/logs/logs.log
 $ cd project-name
 ```
  - Change configuration in __application/.env__

@@ -59,6 +59,19 @@ if (!function_exists('str_parse')) {
  }
 }
 
+if(!function_exists('_log'))
+{
+  function _log($data, $logType = "INFO") {
+      $file = FCPATH . "application/logs/logs.log";      
+      if (count($data) && file_exists($file) && is_writable($file)) {
+        $data = (is_array($data) || is_object($data)) ? json_encode($data) : $data;
+        $dayTime = date('D h:i');
+        $content = "[" . $logType . "] [" . $dayTime . "]" . PHP_EOL . PHP_EOL . $data . PHP_EOL . PHP_EOL;
+        file_put_contents($file, $content, FILE_APPEND);
+      }
+  }
+}
+
 if (!function_exists('active')) {
  function active($route)
  {

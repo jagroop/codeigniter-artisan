@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['ENABLE_JWT_AUTH'] = true;
+$config['ENABLE_JWT_AUTH'] = false;
 
 $config['ACCESS_TOKEN_KEY'] = "ACCESS_TOKEN";
 

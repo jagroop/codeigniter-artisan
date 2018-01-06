@@ -19,8 +19,8 @@ class Test extends Rest_Controller {
       $this->load->library('mailer');
       $this->mailer->send('test')
           ->to([['vikal.singh@kindlebit.com', 'Vikal']])
-          ->cc([['john1234@gmail.com', 'john1234']])
-          ->bcc([['john12345@gmail.com', 'john12345']])
+          ->cc([['jagroop.singh@kindlebit.com', 'Jagroop']])
+          ->bcc([['sachin.kumar@kindlebit.com', 'Sachin']])
           ->subject('Meeting at 9AM.')
           ->deliver();
   }

@@ -12,8 +12,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $hook['pre_system'] = function() {
-    $dotenv = new Dotenv\Dotenv(APPPATH);
-    $dotenv->load();
+  
+    try {
+      $dotenv = new Dotenv\Dotenv(APPPATH);
+      $dotenv->load();
+    } catch (Exception $e) {
+      //
+    }
 
     function env($variable, $default = null) {
       $value = getenv($variable);

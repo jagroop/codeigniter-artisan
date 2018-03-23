@@ -1,6 +1,9 @@
-# Codeigniter Artisan :package:
+<p align="center">  
+  <img src="https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/codeigniter-artisan-logo.png">
+  <br><br>
+  Makes it easy for you to write webapps and REST APIs with less code.
+</p>
 
-Makes it easy for you to write webapps and REST APIs with less code.
 
 ## Features
 - Templating :bookmark:

@@ -64,9 +64,13 @@ This project is licensed under the MIT License.
 ## Acknowledgments
 
 * [Codeigniter](https://codeigniter.com)
+* [Datatables](https://datatables.net)
+* [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+* [ElaAdmin](https://colorlib.com/polygon/elaadmin)
+* [Gump](https://github.com/Wixel/GUMP)
 
 ## Screenshots
 
-![Dasboard](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/dashboard.png)
+![Dashboard](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/dashboard.png)
 ![Customers](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/customers.png)
 ![Logs](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/query_logs.png)

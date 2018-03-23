@@ -71,6 +71,14 @@ This project is licensed under the MIT License.
 
 ## Screenshots
 
+**Dashboard**
+
 ![Dashboard](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/dashboard.png)
+
+**Customers**
+
 ![Customers](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/customers.png)
+
+**Query Logs**
+
 ![Logs](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/query_logs.png)

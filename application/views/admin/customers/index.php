@@ -1,6 +1,6 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Customers</div>
-  <div class="panel-body">
+<div class="card">
+  <div class="card-body">
+  <div class="card-title">Customers</div>
     <table id="customersTable" class="table table-striped" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -30,8 +30,3 @@
     </table>
   </div>
 </div>
-<script type="text/javascript"> 
-$(document).ready(function() {
-    $.fn.dtable("#customersTable", "<?php echo url('admin/customers/ajax_list')?>");
-});   
-</script>

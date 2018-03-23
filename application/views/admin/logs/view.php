@@ -17,12 +17,12 @@
     border-radius: 4px;
   }
 </style>
-<div class="panel panel-default">
-  <div class="panel-heading">
-  <?php echo $log; ?>
-  <a id="pauseResume" class="btn btn-xs btn-primary pull-right" href="#">Pause</a>
-  </div>
-  <div class="panel-body">
+<div class="card">  
+  <div class="card-body">
+    <div class="card-title">
+    <?php echo $log; ?>
+    <a id="pauseResume" class="btn btn-xs btn-primary pull-right" href="#">Pause</a>
+    </div>
     <div class="data">
         <p>Loading...</p>
     </div>
@@ -55,7 +55,6 @@
   });
   var url = '<?php echo url('admin/logs/read/' . $log) ?>';
   setInterval(function(){
-    console.log(pause, 'isPaused');
     if(pause === false)
     {
       $.get(url, function(res, status){

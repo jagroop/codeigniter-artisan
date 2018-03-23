@@ -13,6 +13,12 @@ if (!function_exists('css')) {
 	}
 }
 
+if (!function_exists('asset')) {
+  function asset($file) {
+    return site_url() . 'assets/' . $file;
+  }
+}
+
 if (!function_exists('js')) {
 	function js($file) {
 		return site_url() . 'assets/js/' . $file;

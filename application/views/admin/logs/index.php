@@ -1,6 +1,6 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Logs</div>
-  <div class="panel-body">
+<div class="card">
+  <div class="card-body">
+  <div class="card-title">Logs</div>
     <table class="table table-striped table-hover ">
       <thead>
         <tr>

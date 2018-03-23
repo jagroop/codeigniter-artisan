@@ -52,8 +52,8 @@ class Customer extends MY_Model {
 
 		return array(
 			"draw" => $this->input->post('draw'),
-			"recordsTotal" => $this->customers->count_all(),
-			"recordsFiltered" => $this->customers->count_filtered(),
+			"recordsTotal" => $this->count_all(),
+			"recordsFiltered" => $this->count_filtered(),
 			"data" => $data,
 		);
 	}

@@ -6,6 +6,7 @@
 
 
 ## Features
+- Back office :chart_with_upwards_trend:
 - Templating :bookmark:
 - Query Logging :memo:
 - Laravel Helpers :bulb:

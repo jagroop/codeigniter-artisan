@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Login</title>
+    <title>Login | <?php echo config_item('name'); ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo asset('admin/css/lib/bootstrap/bootstrap.min.css'); ?>" rel="stylesheet">
     <!-- Custom CSS -->
@@ -44,11 +44,11 @@
                     <div class="col-lg-4">
                         <div class="login-content card">
                             <div class="login-form">
-                                <h4>Login</h4>
+                                <h4>Admin Login</h4>
                                 <?php echo form_open('admin/login',array('name' => 'login','class' => 'form-horizontal')); ?>
                                     <div class="form-group">
                                         <label>Email address</label>
-                                        <input class="form-control" id="inputEmail" placeholder="Email"  value="<?php echo set_value('email'); ?>" type="text" name="email">
+                                        <input class="form-control" id="inputEmail" placeholder="Email or Username"  value="<?php echo set_value('email'); ?>" type="text" name="email">
                                         <?php echo form_error('email'); ?>
                                     </div>
                                     <div class="form-group">
@@ -56,18 +56,7 @@
                                         <input class="form-control" id="inputPassword" placeholder="Password"  value="<?php echo set_value('password'); ?>" type="password" name="password"> 
                                         <?php echo form_error('password'); ?>
                                     </div>
-                                    <!-- <div class="checkbox">
-                                        <label>
-                                          <input type="checkbox"> Remember Me
-                                        </label>
-                                         <label class="pull-right">
-                                          <a href="#">Forgotten Password?</a>
-                                        </label>
-                                    </div> -->
-                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
-                                    <!-- <div class="register-link m-t-15 text-center">
-                                        <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
-                                    </div> -->
+                                    <button type="submit" id="login-btn" class="btn btn-primary btn-flat m-b-30 m-t-30">Log in</button>
                                 <?php echo form_close(); ?>
                             </div>
                         </div>
@@ -90,7 +79,21 @@
 <script src="<?php echo asset('admin/js/lib/sticky-kit-master/dist/sticky-kit.min.js'); ?>"></script>
 <!--Custom JavaScript -->
 <script src="<?php echo asset('admin/js/custom.min.js'); ?>"></script>
-
+<script>
+  (function($){
+    $('#login-btn').click(function(e){
+      if($(this).hasClass('disabled'))
+      {
+        e.preventDefault();
+        return false;
+      }
+      if($('input[name="email"]').val() != '' && $('input[name="email"]').val() != '')
+      {
+        $(this).addClass('disabled');
+      }
+    }); 
+  })(jQuery);
+</script>
 </body>
 
 </html>

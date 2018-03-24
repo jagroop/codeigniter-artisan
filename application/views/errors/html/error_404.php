@@ -1,64 +1,109 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>404 Page Not Found</title>
-<style type="text/css">
 
-::selection { background-color: #E13300; color: white; }
-::-moz-selection { background-color: #E13300; color: white; }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <title>404 (NOT FOUND)</title>
+  <style>
+  /* COLORS
+https://www.google.com/design/spec/style/color.html#color-color-palette
+
+Blue Grey
+300 = #90A4AE;
+500 = #607D8B;
+
+=================================== */
 
 body {
-	background-color: #fff;
-	margin: 40px;
-	font: 13px/20px normal Helvetica, Arial, sans-serif;
-	color: #4F5155;
+  background: #607D8B;
+  font-family: 'Lato', serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrap {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+p, a {
+  font-size: 1em;
+}
+
+h2, a {
+    text-transform: uppercase;
 }
 
 a {
-	color: #003399;
-	background-color: transparent;
-	font-weight: normal;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  width: 88px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  transition: all .5s ease;
 }
 
-h1 {
-	color: #444;
-	background-color: transparent;
-	border-bottom: 1px solid #D0D0D0;
-	font-size: 19px;
-	font-weight: normal;
-	margin: 0 0 14px 0;
-	padding: 14px 15px 10px 15px;
+a:hover {
+  background: #90A4AE;
+  border: 2px solid #90A4AE;
+  width: 132px;
 }
 
-code {
-	font-family: Consolas, Monaco, Courier New, Courier, monospace;
-	font-size: 12px;
-	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
-	color: #002166;
-	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
+/* MEDIA QUERIES
+================================================== */
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media (min-width:320px) {
+h1 {font-size: 2em; }
+h2 {font-size: 1.5em; }
 }
 
-#container {
-	margin: 10px;
-	border: 1px solid #D0D0D0;
-	box-shadow: 0 0 8px #D0D0D0;
+/* smartphones, Android phones, landscape iPhone */
+@media (min-width:480px) {
+h1 {font-size: 3em; }
+h2 {font-size: 1.75em; }
 }
 
-p {
-	margin: 12px 15px 12px 15px;
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media (min-width:600px) {
+h1 {font-size: 4em; }
+h2 {font-size: 2em; }
+}
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:801px) {
+h1 {font-size: 5em; }
+h2 {font-size: 3em; }
+}
+
+
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {
+h1 {font-size: 6em; }
+h2 {font-size: 4em; }
+}
+
+
+/* hi-res laptops and desktops */
+@media (min-width:1281px) {
+h1 {font-size: 7em; }
+h2 {font-size: 5em; }
 }
 </style>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
 </head>
 <body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
-	</div>
+  <div class="page-wrap">
+    <!-- <h1>404</h1> -->
+    <h2><?php echo $heading; ?></h2>
+    <p><?php echo $message; ?></p>
+    <p><a href="/">home</a></p>
+  </div>
 </body>
 </html>

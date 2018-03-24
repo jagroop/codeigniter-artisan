@@ -38,7 +38,7 @@
         <!-- Page wrapper  -->
         <div class="page-wrapper">
             <!-- Bread crumb -->
-            <div class="row page-titles">
+            <!-- <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-primary">Dashboard</h3> </div>
                 <div class="col-md-7 align-self-center">
@@ -47,4 +47,4 @@
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
-            </div>
+            </div> -->

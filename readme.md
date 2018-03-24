@@ -1,5 +1,5 @@
 <p align="center">  
-  <img src="https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/codeigniter-artisan-logo.png">
+  <img src="https://github.com/jagroop/codeigniter-artisan/blob/master/docs/logo.png">
   <br><br>
   Makes it easy for you to write webapps and REST APIs with less code.
 </p>
@@ -72,17 +72,3 @@ This project is licensed under the MIT License.
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 * [ElaAdmin](https://colorlib.com/polygon/elaadmin)
 * [Gump](https://github.com/Wixel/GUMP)
-
-## Screenshots
-
-**Dashboard**
-
-![Dashboard](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/dashboard.png)
-
-**Customers**
-
-![Customers](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/customers.png)
-
-**Query Logs**
-
-![Logs](https://github.com/jagroop/codeigniter-artisan/blob/master/docs/screenshots/query_logs.png)

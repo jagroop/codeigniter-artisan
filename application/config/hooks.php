@@ -27,9 +27,9 @@ $hook['pre_system'] = function() {
 
 };
 
-$hook['post_controller'] = array(    
-	'class' => 'DB_Log',             
-	'function' => 'logQueries',     
-	'filename' => 'DB_Log.php',    
-	'filepath' => 'hooks'         
-);
+// $hook['post_controller'] = array(    
+// 	'class' => 'DB_Log',             
+// 	'function' => 'logQueries',     
+// 	'filename' => 'DB_Log.php',    
+// 	'filepath' => 'hooks'         
+// );

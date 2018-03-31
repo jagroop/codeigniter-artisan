@@ -85,3 +85,58 @@ if (!function_exists('active')) {
     return ($CI->uri->segment(2) == $route) ? 'active' : '';
  }
 }
+
+if (!function_exists('uploads_path')) {
+  function uploads_path()
+  {
+    return FCPATH . 'uploads';
+  }
+}
+
+if (!function_exists('uploads_url')) {
+  function uploads_url($fileName = NULL)
+  {
+    $uploads = base_url() . '/uploads/';
+    return ($fileName) ? $uploads . $fileName : $uploads;
+  }
+}
+
+if (!function_exists('carbon')) {    
+  function carbon(...$args) {
+    return new Carbon\Carbon(...$args);
+  }
+}
+
+if (!function_exists('now')) {    
+  function now($dateOnly = false) {
+    return ($dateOnly) ? carbon()->now()->toDateString() : carbon()->now()->toDateTimeString();
+  }
+}
+
+if(!function_exists('push'))
+{
+  function push($stackName)
+  {
+    putenv("stack_name=$stackName");
+    ob_start(); // start output buffering
+  }
+}
+
+if(!function_exists('endpush'))
+{
+  function endpush()
+  {
+    $bufferContent = ob_get_clean();
+    $getStackName = getenv('stack_name');
+    return putenv("$getStackName=$bufferContent");
+  }
+}
+
+if(!function_exists('stack'))
+{
+  function stack($stackName)
+  {
+    $scripts = getenv($stackName);
+    return ($scripts) ? $scripts : '';
+  }
+}

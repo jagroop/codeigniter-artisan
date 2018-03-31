@@ -30,3 +30,11 @@
     </table>
   </div>
 </div>
+
+<?php push('scripts'); ?>
+<script>
+$(document).ready(function() {
+  $.fn.dtable("#customersTable", '<?php echo url("admin/customers/ajax_list"); ?>');
+});
+</script>
+<?php endpush();?>

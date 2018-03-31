@@ -1,3 +1,4 @@
+<script src="<?php echo asset('admin/js/lib/jquery/jquery.min.js'); ?>"></script>
 <script src="<?php echo asset('admin/js/lib/bootstrap/js/popper.min.js'); ?>"></script>
 <script src="<?php echo asset('admin/js/lib/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script src="<?php echo asset('admin/js/jquery.slimscroll.js'); ?>"></script>
@@ -13,4 +14,4 @@
 <script src="<?php echo asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js'); ?>"></script>
 <script src="<?php echo asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js'); ?>"></script>
 <script src="<?php echo asset('admin/js/ci-datatables-init.js')?>"></script>
-<script src="<?php echo asset('admin/js/app.js')?>"></script>
+<?php echo stack('scripts'); ?>

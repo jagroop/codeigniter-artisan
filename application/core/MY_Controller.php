@@ -135,3 +135,23 @@ class Rest_Controller extends CI_Controller {
     ), $this->authConfig['CONSUMER_SECRET']);
   }
 }
+
+class Async_Controller extends CI_Controller {
+
+  public function __construct()
+  {
+      parent::__construct();
+  }
+
+  public function isSecure()
+  {
+      $accessToken = $this->input->get_request_header('ASYNC_ACCESS_TOKEN', TRUE);
+      $this->load->library('JWT');
+      $this->load->config('auth');
+      $secret = config_item('CONSUMER_SECRET');
+      $key    = config_item('CONSUMER_KEY');
+      $v = $this->jwt->decode($accessToken, $secret);
+      return ($v->consumerKey === $key) ? true : false;
+  }
+
+}

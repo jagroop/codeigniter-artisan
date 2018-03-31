@@ -25,9 +25,10 @@ class Async
         //
         //For localhost and un-secure server
        $fp = fsockopen($parts['host'], isset($parts['port']) ? $parts['port'] : 80, $errno, $errstr, 30);
+
         if(!$fp)
-        {
-          // Something Went Wrong;   
+        {          
+          return false; // Something Went Wrong;   
         }
 
         $this->ci->load->library('JWT');

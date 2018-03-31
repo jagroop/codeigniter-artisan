@@ -47,9 +47,7 @@ $this->notification->send($user, [
 ## Internal Http Requests (Non-Blocking) :rocket:
 
 ```php
-$url = base_url() . 'Controller/method';
-
-$this->async->run($url, [
+$this->async->run(url('Controller/method'), [
   'name'        => 'Bruce Wayne',
   'super_power' => 'He is Rich',
 ]);

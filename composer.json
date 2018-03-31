@@ -5,10 +5,11 @@
 	"homepage": "https://github.com/jagroop/codeigniter-artisan",
 	"license": "MIT",
 	"require": {
-		"php": ">=5.3.7",
+		"php": ">=5.4.33",
     "phpmailer/phpmailer": "^5.2",
     "nesbot/carbon": "^1.22",
-		"vlucas/phpdotenv": "^2.4"
+    "vlucas/phpdotenv": "^2.4",
+		"tightenco/collect": "^5.4"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

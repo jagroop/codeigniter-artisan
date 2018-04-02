@@ -106,7 +106,8 @@ class Rest_Controller extends CI_Controller {
       return $this->error('Method Not Allowed.', 403);
     }
     $this->load->library('validator');
-    $is_valid = $this->validator->get_instance()::is_valid($data, $rules);
+    $validatorInstance = $this->validator->get_instance();
+    $is_valid = $validatorInstance::is_valid($data, $rules);
     if ($is_valid !== true) {
       return $this->error($is_valid[0]);
     }

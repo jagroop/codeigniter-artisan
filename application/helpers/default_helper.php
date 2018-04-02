@@ -41,7 +41,7 @@ if (!function_exists('dd')) {
 
 if (!function_exists('msg')) {
 	function msg($key) {
-		return config_item($key) ?? '';
+		return (config_item($key)) ? config_item($key) : '';
 	}
 }
 

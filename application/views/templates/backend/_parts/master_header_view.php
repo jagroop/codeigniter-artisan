@@ -11,7 +11,7 @@
     <meta name="site_url" content="<?php echo url('/'); ?>">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title><?php echo $pagetitle ?? config('name');?></title>
+    <title><?php echo (isset($pagetitle) && trim($pagetitle) != '') ? $pagetitle : config('name');?></title>
      <?php $this->load->view('templates/backend/_parts/master_top_includes');?>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->

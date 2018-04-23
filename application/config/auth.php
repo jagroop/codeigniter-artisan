@@ -2,10 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['ENABLE_JWT_AUTH'] = true;
+$config['ENABLE_JWT']  = false;
 
-$config['CONSUMER_KEY'] = "59ba36addc2";
+$config['JWT_KEY']     = "59ba36addc2";
 
-$config['CONSUMER_SECRET'] = 'sec!ReT423*&';
+$config['JWT_ENC_KEY'] = 'sec!ReT423TrexzillaGod*&';
 
-$config['CONSUMER_TTL'] = 86400;
+$config['JWT_EXPIRE']  = carbon()->now()->addMonth()->toDateTimeString();

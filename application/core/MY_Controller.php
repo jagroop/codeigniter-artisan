@@ -67,15 +67,15 @@ class Rest_Controller extends CI_Controller {
     $this->config->load('auth');
 
     $this->authConfig = [
-      'ENABLE_JWT_AUTH'  => config_item('ENABLE_JWT_AUTH'),
-      'CONSUMER_KEY'     => config_item('CONSUMER_KEY'),
-      'CONSUMER_SECRET'  => config_item('CONSUMER_SECRET'),
-      'CONSUMER_TTL'     => config_item('CONSUMER_TTL'),
+      'ENABLE_JWT'  => config_item('ENABLE_JWT'),
+      'JWT_KEY'     => config_item('JWT_KEY'),
+      'JWT_ENC_KEY' => config_item('JWT_ENC_KEY'),
+      'JWT_EXPIRE'  => config_item('JWT_EXPIRE'),
     ];
 
     header('Content-Type: application/json');
 
-    if ($this->authConfig['ENABLE_JWT_AUTH'] == true && !in_array($this->router->method, self::SAFE_METHODS)) {
+    if ($this->authConfig['ENABLE_JWT'] == true && !in_array($this->router->method, self::SAFE_METHODS)) {
       $header = $this->input->get_request_header('Authorization');
       list($jwt) = sscanf($header, 'Bearer %s');
       $auth = $this->verifyJwtToken($jwt);
@@ -118,10 +118,12 @@ class Rest_Controller extends CI_Controller {
     $this->load->library('JWT');
 
     try {
-      $key = $this->authConfig['CONSUMER_KEY'];
-      $secret = $this->authConfig['CONSUMER_SECRET'];
-      $v = $this->jwt->decode($jwtToken, $secret);
-      return (count($v) > 0 && $v->consumerKey == $key) ? $v : false;
+      
+      $key    = $this->authConfig['JWT_KEY'];
+      $secret = $this->authConfig['JWT_ENC_KEY'];
+      $v = $this->jwt->decode($jwtToken, $secret); 
+
+      return (count($v) > 0 && $v->jwtKey == $key && carbon()->parse($v->expireAt)->gt(carbon()->now())) ? $v : false;
     } catch (Exception $e) {
       return false;
     }
@@ -132,14 +134,13 @@ class Rest_Controller extends CI_Controller {
     $this->load->library('JWT');
 
     $default = [
-      'consumerKey' => $this->authConfig['CONSUMER_KEY'],
-      'issuedAt'    => date(DATE_ISO8601, strtotime("now")),
-      'ttl'         => $this->authConfig['CONSUMER_TTL'],
+      'jwtKey'   => $this->authConfig['JWT_KEY'],
+      'expireAt' => $this->authConfig['JWT_EXPIRE'],
     ];
 
     $payload = array_merge($userPayload, $default);
 
-    return $this->jwt->encode($payload, $this->authConfig['CONSUMER_SECRET']);
+    return $this->jwt->encode($payload, $this->authConfig['JWT_ENC_KEY']);
   }
 }
 
@@ -155,10 +156,10 @@ class Async_Controller extends CI_Controller {
       $accessToken = $this->input->get_request_header('ASYNC_ACCESS_TOKEN', TRUE);
       $this->load->library('JWT');
       $this->load->config('auth');
-      $secret = config_item('CONSUMER_SECRET');
-      $key    = config_item('CONSUMER_KEY');
+      $secret = config_item('JWT_ENC_KEY');
+      $key    = config_item('JWT_KEY');
       $v = $this->jwt->decode($accessToken, $secret);
-      return ($v->consumerKey === $key) ? true : false;
+      return ($v->jwtKey === $key) ? true : false;
   }
 
 }

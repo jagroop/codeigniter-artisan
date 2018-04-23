@@ -65,9 +65,9 @@ class Customer extends MY_Model {
 	 * @return object | boolean           
 	 */
 	public function loginAttempt($email, $password) {
-		$user = $this->db->get_where($this->table, ['email' => $email])->row();
-		if (count($user) > 0 && password_verify($password, $user->password) === true) {
-      unset($user->password);
+		$user = $this->db->get_where($this->table, ['email' => $email])->row_array();
+		if (count($user) > 0 && password_verify($password, $user['password']) === true) {
+      unset($user['password']);
 			return $user;
 		}
 		return false;

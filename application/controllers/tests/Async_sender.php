@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Async_sender extends Rest_Controller {
+class Async_sender extends CI_Controller {
 
   public function send()
   {      
@@ -14,6 +14,6 @@ class Async_sender extends Rest_Controller {
         'message' => 'Its Working !',
       ]);
 
-      $this->success('DONE');
+      dd('DONE');
   }
 }

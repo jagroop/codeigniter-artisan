@@ -59,6 +59,8 @@ class Rest_Controller extends CI_Controller {
 
   private $authConfig = [];
 
+  protected $auth = NULL;
+
   public function __construct() {
     parent::__construct();
 
@@ -66,8 +68,6 @@ class Rest_Controller extends CI_Controller {
 
     $this->authConfig = [
       'ENABLE_JWT_AUTH'  => config_item('ENABLE_JWT_AUTH'),
-      'ACCESS_TOKEN_KEY' => config_item('ACCESS_TOKEN_KEY'),
-      'USER_ID_KEY'      => config_item('USER_ID_KEY'),
       'CONSUMER_KEY'     => config_item('CONSUMER_KEY'),
       'CONSUMER_SECRET'  => config_item('CONSUMER_SECRET'),
       'CONSUMER_TTL'     => config_item('CONSUMER_TTL'),
@@ -76,12 +76,14 @@ class Rest_Controller extends CI_Controller {
     header('Content-Type: application/json');
 
     if ($this->authConfig['ENABLE_JWT_AUTH'] == true && !in_array($this->router->method, self::SAFE_METHODS)) {
-      $accessToken = $this->input->get_request_header($this->authConfig['ACCESS_TOKEN_KEY'], TRUE);
-      $uid = $this->input->get_request_header($this->authConfig['USER_ID_KEY'], TRUE);
-      if (!$this->verifyJwtToken($accessToken, $uid)) {
+      $header = $this->input->get_request_header('Authorization');
+      list($jwt) = sscanf($header, 'Bearer %s');
+      $auth = $this->verifyJwtToken($jwt);
+      if (!$auth || $auth == false) {
         return $this->error('Invalid Access Token.', 403);
         exit;
-      }
+      }      
+      $this->auth = $auth;
     }
   }
 
@@ -89,6 +91,7 @@ class Rest_Controller extends CI_Controller {
     echo json_encode($response);
     die;
   }
+
   public function success($msg = "Success", $data = array()) {
     return $this->response(array('code' => 200, 'success' => true, 'msg' => $msg, 'data' => $data));
   }
@@ -101,10 +104,7 @@ class Rest_Controller extends CI_Controller {
     return $this->response(array('code' => 400, 'success' => false, 'error' => ($request != "") ? $request : 'BAD_REQUEST'));
   }
 
-  public function validate($data, $rules, $postOnly = true) {
-    if ($postOnly === true && $this->input->method() !== "post") {
-      return $this->error('Method Not Allowed.', 403);
-    }
+  public function validate($data, $rules) {
     $this->load->library('validator');
     $validatorInstance = $this->validator->get_instance();
     $is_valid = $validatorInstance::is_valid($data, $rules);
@@ -113,27 +113,33 @@ class Rest_Controller extends CI_Controller {
     }
   }
 
-  public function verifyJwtToken($jwtToken, $uid) {
+  public function verifyJwtToken($jwtToken) {
 
     $this->load->library('JWT');
+
     try {
       $key = $this->authConfig['CONSUMER_KEY'];
       $secret = $this->authConfig['CONSUMER_SECRET'];
       $v = $this->jwt->decode($jwtToken, $secret);
-      return (count($v) > 0 && $v->consumerKey == $key && $uid == $v->user_id) ? true : false;
+      return (count($v) > 0 && $v->consumerKey == $key) ? $v : false;
     } catch (Exception $e) {
       return false;
     }
   }
 
-  public function generateJwtToken($userID) {
+  public function generateJwtToken($userPayload) {
+    
     $this->load->library('JWT');
-    return $this->jwt->encode(array(
+
+    $default = [
       'consumerKey' => $this->authConfig['CONSUMER_KEY'],
-      'user_id' => $userID,
-      'issuedAt' => date(DATE_ISO8601, strtotime("now")),
-      'ttl' => $this->authConfig['CONSUMER_TTL'],
-    ), $this->authConfig['CONSUMER_SECRET']);
+      'issuedAt'    => date(DATE_ISO8601, strtotime("now")),
+      'ttl'         => $this->authConfig['CONSUMER_TTL'],
+    ];
+
+    $payload = array_merge($userPayload, $default);
+
+    return $this->jwt->encode($payload, $this->authConfig['CONSUMER_SECRET']);
   }
 }
 

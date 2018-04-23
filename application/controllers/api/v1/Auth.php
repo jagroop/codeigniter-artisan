@@ -17,16 +17,18 @@ class Auth extends Rest_Controller {
 	 * @return void
 	 */
 	public function login() {
-		$this->validate($this->input->post(), [
-			'email' => 'required|valid_email',
-			'password' => 'required',
+		
+    $this->validate($this->input->post(), [
+      'email'    => 'required|valid_email',
+      'password' => 'required',
 		]);
+
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$this->load->model('customer');
 		$user = $this->customer->loginAttempt($email, $password);
 		if ($user) {
-			$user->access_token = $this->generateJwtToken($user->id);
+			$user['access_token'] = $this->generateJwtToken($user);
 			return $this->success('Logged In,', $user);
 		} else {
 			return $this->error('Invalid Email Or Password.');
@@ -38,6 +40,7 @@ class Auth extends Rest_Controller {
 	 * @return void
 	 */
 	public function testJWTVerif() {
+    // dd($this->auth);
 		return $this->success('Verification Passed !!');
 	}
 }

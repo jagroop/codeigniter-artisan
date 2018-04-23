@@ -140,3 +140,11 @@ if(!function_exists('stack'))
     return ($scripts) ? $scripts : '';
   }
 }
+
+if(!function_exists('bcrypt'))
+{
+  function bcrypt($plainText)
+  {
+    return password_hash($plainText, PASSWORD_BCRYPT);
+  }
+}

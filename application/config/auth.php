@@ -2,14 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['ENABLE_JWT_AUTH'] = false;
+$config['ENABLE_JWT_AUTH'] = true;
 
-$config['ACCESS_TOKEN_KEY'] = "ACCESS_TOKEN";
+$config['CONSUMER_KEY'] = "59ba36addc2";
 
-$config['USER_ID_KEY'] = "LOGGED_IN_USER";
-
-$config['CONSUMER_KEY'] = "59ba36addc2b2fnOWZkWEE9PSIsInZhbHVlIjoiZ3VRaVhwQ1JTSkdX9401580f014c7f58ea4e30989d";
-
-$config['CONSUMER_SECRET'] = "eyJpdiI6IldiTVZ4ZEdMbmxEWVlDVEhnOWZkWEE9PSIsInZhbHVlIjoiZ3VRaVhwQ1JTSkdXNWZlQjI4cXk4cFJCWVhKbmwrYzFobmZ0ek9oSmJxcnlsbUl5M";
+$config['CONSUMER_SECRET'] = 'sec!ReT423*&';
 
 $config['CONSUMER_TTL'] = 86400;

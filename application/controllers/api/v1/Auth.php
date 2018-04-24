@@ -14,7 +14,7 @@ class Auth extends Rest_Controller {
 
 	/**
 	 * User Login Function
-	 * @return void
+	 * @return JSON
 	 */
 	public function login() {
 		
@@ -28,12 +28,23 @@ class Auth extends Rest_Controller {
 		$this->load->model('customer');
 		$user = $this->customer->loginAttempt($email, $password);
 		if ($user) {
-			$user['access_token'] = $this->generateJwtToken($user);
-			return $this->success('Logged In,', $user);
+			$token = $this->generateJwtToken($user);
+			return $this->success('Logged In', ['token' => $token]);
 		} else {
 			return $this->error('Invalid Email Or Password.');
 		}
 	}
+
+  /**
+   * User Logout Function
+   * @return JSON
+   */
+  public function logout() {
+    $this->load->model('customer');
+    $logout = $this->customer->logout($this->auth->id);
+    return ($logout) ? $this->success('Logged Out.') : $this->error('Error occurred while logging out.');
+  }
+
 	/**
 	 * Test if JWT Authentication is passed
 	 *

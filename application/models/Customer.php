@@ -67,10 +67,18 @@ class Customer extends MY_Model {
 	public function loginAttempt($email, $password) {
 		$user = $this->db->get_where($this->table, ['email' => $email])->row_array();
 		if (count($user) > 0 && password_verify($password, $user['password']) === true) {
+      $salt = str_random(30);
+      $this->db->update($this->table, ['salt' => $salt], ['id' => $user['id']]);
       unset($user['password']);
+      $user['salt'] = $salt;
 			return $user;
 		}
 		return false;
 	}
 
+  public function logout($id)
+  {
+    $salt = str_random(5);
+    return $this->db->update($this->table, ['salt' => $salt], ['id' => $id]); // change user's salt
+  }
 }

@@ -2,14 +2,12 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['ENABLE_JWT']            = false;
+$config['JWT_ENABLE_']      = false;
 
-$config['JWT_KEY']               = "4JCum2S253JqZ336ZAJbn6TT";
+$config['JWT_SECRET']       = 'sec!ReT423TrexzillaGod*&';
 
-$config['JWT_ENC_KEY']           = 'sec!ReT423TrexzillaGod*&';
+$config['JWT_ISSUER']       = $_SERVER['REMOTE_ADDR'];
 
-$config['JWT_EXPIRE']            = carbon()->now()->addMonth()->toDateTimeString();
+$config['JWT_EXPIRE']       = carbon()->now()->addMinutes(59)->toDateTimeString();
 
-$config['JWT_SAFE_METHODS']      = ['register', 'login'];
-
-$config['JWT_INVALIDATE_TOKENS'] = true;
+$config['JWT_SAFE_METHODS'] = ['register', 'login'];

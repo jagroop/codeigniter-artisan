@@ -1,4 +1,9 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+use ReallySimpleJWT\Token;
+use ReallySimpleJWT\TokenBuilder;
+use ReallySimpleJWT\TokenValidator;
 
 class Front_Controller extends CI_Controller {
 
@@ -138,17 +143,17 @@ class Rest_Controller extends CI_Controller {
   }
 
   public function generateJwtToken($userPayload) {
-    
-    $this->load->library('JWT');
+    $secret     = config_item('JWT_SECRET');
+    $expiration = config_item('JWT_EXPIRE');
+    $issuer     = config_item('JWT_ISSUER');
+    // dd($userPayload);
+    $builder = new TokenBuilder();
 
-    $default = [
-      'jwtKey'   => $this->authConfig['JWT_KEY'],
-      'expireAt' => $this->authConfig['JWT_EXPIRE'],
-    ];
-
-    $payload = array_merge($userPayload, $default);
-
-    return $this->jwt->encode($payload, $this->authConfig['JWT_ENC_KEY']);
+    return $builder->addPayload($userPayload)
+        ->setSecret($secret)
+        ->setExpiration($expiration)
+        ->setIssuer($issuer)
+        ->build();
   }
 }
 

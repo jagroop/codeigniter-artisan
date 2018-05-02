@@ -17,7 +17,7 @@ class Auth extends Rest_Controller {
 	 * @return JSON
 	 */
 	public function login() {
-		
+    
     $this->validate($this->input->post(), [
       'email'    => 'required|valid_email',
       'password' => 'required',

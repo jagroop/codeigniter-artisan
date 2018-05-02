@@ -1,16 +1,14 @@
 {
 	"name": "jagroop/codeigniter-artisan",
 	"description": "Codeigniter Scaffold for making better web application and rest Apps with writing less code ",
+  "keywords": ["codeigniter", "php", "admin panel", "rest", "apis"],
 	"type": "project",
 	"homepage": "https://github.com/jagroop/codeigniter-artisan",
 	"license": "MIT",
 	"require": {
-		"php": ">=5.4.33",
+		"php": ">=7.0.0",
     "phpmailer/phpmailer": "^5.2",
-    "nesbot/carbon": "^1.22",
-    "vlucas/phpdotenv": "^2.4"
-	},
-	"suggest": {
-		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+    "vlucas/phpdotenv": "^2.4",
+		"rbdwllr/reallysimplejwt": "^1.0"
 	}
 }

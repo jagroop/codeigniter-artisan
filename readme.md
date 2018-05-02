@@ -46,7 +46,9 @@ admin
 ```
 ### Prerequisites
 
-PHP >= 5.3
+PHP >= 7.0
+
+> For lower PHP version checkout branch ```1.0```
 
 
 ## Built With

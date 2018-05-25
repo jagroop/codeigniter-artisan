@@ -2,9 +2,9 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['JWT_ENABLE_']      = false;
+$config['JWT_ENABLE']       = env('JWT_ENABLE', false);
 
-$config['JWT_SECRET']       = 'sec!ReT423TrexzillaGod*&';
+$config['JWT_SECRET']       = env('JWT_SECRET', 'sec!ReT423TrexzillaGod*&');
 
 $config['JWT_ISSUER']       = $_SERVER['REMOTE_ADDR'];
 

@@ -9,7 +9,7 @@ class Validation_test extends Rest_Controller {
 
     $this->validate($request, [
       'foo_id' => 'required|exist,customers:id',
-      'name' => 'required|unique,customers:FirstName'
+      'name'   => 'required|unique,customers:FirstName'
     ]);  
 
     dd($request);

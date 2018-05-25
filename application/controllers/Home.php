@@ -4,9 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends Front_Controller {
 
 	public function index(){
-
-		return $this->render('index');
-    
+    var_dump(env('FOO'));die;
+		return $this->render('index');    
 	}  
 
 }

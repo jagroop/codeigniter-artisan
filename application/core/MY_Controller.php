@@ -68,7 +68,7 @@ class Rest_Controller extends CI_Controller {
     $this->config->load('auth');
 
     $this->authConfig = [
-      'ENABLE_JWT'            => config_item('ENABLE_JWT'),
+      'JWT_ENABLE'            => config_item('JWT_ENABLE'),
       'JWT_KEY'               => config_item('JWT_KEY'),
       'JWT_ENC_KEY'           => config_item('JWT_ENC_KEY'),
       'JWT_EXPIRE'            => config_item('JWT_EXPIRE'),
@@ -77,8 +77,7 @@ class Rest_Controller extends CI_Controller {
     ];
 
     header('Content-Type: application/json');
-
-    if ($this->authConfig['ENABLE_JWT'] == true && !in_array($this->router->method, $this->authConfig['JWT_SAFE_METHODS'])) {
+    if ($this->authConfig['JWT_ENABLE'] == true && !in_array($this->router->method, $this->authConfig['JWT_SAFE_METHODS'])) {
       $header = $this->input->get_request_header('Authorization');
       list($jwt) = sscanf($header, 'Bearer %s');
       $auth = $this->verifyJwtToken($jwt);
@@ -146,11 +145,13 @@ class Rest_Controller extends CI_Controller {
     $secret     = config_item('JWT_SECRET');
     $expiration = config_item('JWT_EXPIRE');
     $issuer     = config_item('JWT_ISSUER');
-    // dd($userPayload);
     $builder = new TokenBuilder();
 
-    return $builder->addPayload($userPayload)
-        ->setSecret($secret)
+    foreach ($userPayload as $key => $value) {
+      $builder->addPayload(['key' => $key, 'value' => $value]);
+    }
+
+    return $builder->setSecret($secret)
         ->setExpiration($expiration)
         ->setIssuer($issuer)
         ->build();

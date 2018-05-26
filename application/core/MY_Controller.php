@@ -67,25 +67,18 @@ class Rest_Controller extends CI_Controller {
 
     $this->config->load('auth');
 
-    $this->authConfig = [
-      'JWT_ENABLE'            => config_item('JWT_ENABLE'),
-      'JWT_KEY'               => config_item('JWT_KEY'),
-      'JWT_ENC_KEY'           => config_item('JWT_ENC_KEY'),
-      'JWT_EXPIRE'            => config_item('JWT_EXPIRE'),
-      'JWT_SAFE_METHODS'      => config_item('JWT_SAFE_METHODS'),
-      'JWT_INVALIDATE_TOKENS' => config_item('JWT_INVALIDATE_TOKENS'),
-    ];
+    $this->authConfig = config_item('jwt');
 
     header('Content-Type: application/json');
-    if ($this->authConfig['JWT_ENABLE'] == true && !in_array($this->router->method, $this->authConfig['JWT_SAFE_METHODS'])) {
+    if ($this->authConfig['enable'] == true && !in_array($this->router->method, $this->authConfig['safe_methods'])) {
       $header = $this->input->get_request_header('Authorization');
       list($jwt) = sscanf($header, 'Bearer %s');
-      $auth = $this->verifyJwtToken($jwt);
+      $auth = $this->verifyJwtToken(trim($jwt));
       if (!$auth || $auth == false) {
         return $this->error('Invalid Access Token.', 403);
         exit;
       }      
-      unset($auth->salt, $auth->jwtKey, $auth->expireAt);
+      unset($auth->salt);
       $this->auth = $auth;
     }
   }
@@ -118,43 +111,42 @@ class Rest_Controller extends CI_Controller {
 
   public function verifyJwtToken($jwtToken) {
 
-    $this->load->library('JWT');
-
     try {
+      $isValidToken = Token::validate($jwtToken, $this->authConfig['secret']);
       
-      $key          = $this->authConfig['JWT_KEY'];
-      $secret       = $this->authConfig['JWT_ENC_KEY'];
-      $payload      = $this->jwt->decode($jwtToken, $secret); 
-      $isNotExpired = carbon()->parse($payload->expireAt)->gt(carbon()->now());
-      
+      if($isValidToken !== true)
+      {
+        throw new Exception("Not a valid Access Token", 1);        
+      }
+
+      $payload = Token::getPayload($jwtToken);
+      $payload = json_decode($payload);
       $haveValidSalt = true;
 
-      if($this->authConfig['JWT_INVALIDATE_TOKENS'] === true)
+      if($this->authConfig['invalidate'] === true)
       {
         $counter = $this->db->get_where('customers', ['id' => $payload->id, 'salt' => $payload->salt])->num_rows();
         $haveValidSalt = ($counter > 0) ? true : false;
       }
 
-      return (count($payload) > 0 && $payload->jwtKey == $key && $isNotExpired && $haveValidSalt) ? $payload : false;
+      return (count($payload) > 0 && $haveValidSalt) ? $payload : false;
     } catch (Exception $e) {
       return false;
     }
   }
 
   public function generateJwtToken($userPayload) {
-    $secret     = config_item('JWT_SECRET');
-    $expiration = config_item('JWT_EXPIRE');
-    $issuer     = config_item('JWT_ISSUER');
+
     $builder = new TokenBuilder();
 
     foreach ($userPayload as $key => $value) {
       $builder->addPayload(['key' => $key, 'value' => $value]);
     }
 
-    return $builder->setSecret($secret)
-        ->setExpiration($expiration)
-        ->setIssuer($issuer)
-        ->build();
+    return $builder->setSecret($this->authConfig['secret'])
+                  ->setExpiration($this->authConfig['expire'])
+                  ->setIssuer($this->authConfig['issuer'])
+                  ->build();
   }
 }
 
@@ -170,8 +162,8 @@ class Async_Controller extends CI_Controller {
       $accessToken = $this->input->get_request_header('ASYNC_ACCESS_TOKEN', TRUE);
       $this->load->library('JWT');
       $this->load->config('auth');
-      $secret = config_item('JWT_ENC_KEY');
-      $key    = config_item('JWT_KEY');
+      $secret = config_item('ENC_KEY');
+      $key    = config_item('KEY');
       $v = $this->jwt->decode($accessToken, $secret);
       return ($v->jwtKey === $key) ? true : false;
   }

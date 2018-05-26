@@ -51,7 +51,6 @@ class Auth extends Rest_Controller {
 	 * @return void
 	 */
 	public function testJWTVerif() {
-    // dd($this->auth);
 		return $this->success('Verification Passed !!');
 	}
 }

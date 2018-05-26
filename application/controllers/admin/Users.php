@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Customers extends Admin_Controller {
+class Users extends Admin_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -9,12 +9,12 @@ class Customers extends Admin_Controller {
 
 	public function index() {
 		$this->load->helper('url');
-		$this->render('customers/index');
+		$this->render('users/index');
 	}
 
 	public function ajax_list() {
-		$this->load->model('customer', 'customers');
-		$list = $this->customers->all();
+		$this->load->model('UserModel', 'user');
+		$list = $this->user->all();
 		echo json_encode($list);
 	}
 

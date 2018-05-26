@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
-  <div class="card-title">Customers</div>
-    <table id="customersTable" class="table table-striped" cellspacing="0" width="100%">
+  <div class="card-title">Users</div>
+    <table id="usersTable" class="table table-striped" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -34,7 +34,7 @@
 <?php push('scripts'); ?>
 <script>
 $(document).ready(function() {
-  $.fn.dtable("#customersTable", '<?php echo url("admin/customers/ajax_list"); ?>');
+  $.fn.dtable("#usersTable", '<?php echo url("admin/users/ajax_list"); ?>');
 });
 </script>
 <?php endpush();?>

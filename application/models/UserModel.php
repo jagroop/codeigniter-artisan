@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Customer extends MY_Model {
+class UserModel extends MY_Model {
 
-	var $table = 'customers';
+	var $table = 'users';
 	var $column_order = array(null, 'FirstName', 'LastName', 'phone', 'address', 'city', 'country');
 	var $column_search = array('FirstName', 'LastName', 'phone', 'address', 'city', 'country');
 	var $order = array('id' => 'asc');
@@ -34,19 +34,19 @@ class Customer extends MY_Model {
 	 * @return array Customers
 	 */
 	public function all(){
-		$list = $this->get_datatables();
+		$users = $this->get_datatables();
 		$data = array();
 		$i = $this->input->post('start');
-		foreach ($list as $customers) {
+		foreach ($users as $user) {
 			$i++;
 			$row = array();
 			$row[] = $i;
-			$row[] = $customers->FirstName;
-			$row[] = $customers->LastName;
-			$row[] = $customers->phone;
-			$row[] = $customers->address;
-			$row[] = $customers->city;
-			$row[] = $customers->country;
+			$row[] = $user->FirstName;
+			$row[] = $user->LastName;
+			$row[] = $user->phone;
+			$row[] = $user->address;
+			$row[] = $user->city;
+			$row[] = $user->country;
 			$data[] = $row;
 		}
 

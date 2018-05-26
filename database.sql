@@ -16,8 +16,8 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 (1,	'admin@admin.com',	'$2y$10$qIv8oZ0NaQ1Ht1g4P6gnDeev6XR1hK8jq1lwqnyAXU8oIkIpeLVGe');
 
-DROP TABLE IF EXISTS `customers`;
-CREATE TABLE `customers` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(50) NOT NULL,
   `LastName` varchar(50) NOT NULL DEFAULT '',
@@ -31,7 +31,7 @@ CREATE TABLE `customers` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `customers` (`id`, `FirstName`, `LastName`, `email`, `password`, `salt`, `phone`, `address`, `city`, `country`) VALUES
+INSERT INTO `users` (`id`, `FirstName`, `LastName`, `email`, `password`, `salt`, `phone`, `address`, `city`, `country`) VALUES
 (1,	'Carine',	'Schmitt',	'test@gmail.com',	'$2y$10$JHNB7dWic2KhKz3KBASiGuRByRi1FUMVwUirNcll.eQQg5nv50nCy',	'3YBI7',	'40.32.2555',	'54, rue Royale',	'Nantes',	'France'),
 (2,	'Jean',	'King',	NULL,	NULL,	NULL,	'7025551838',	'8489 Strong St.',	'Las Vegas',	'USA'),
 (3,	'Peter',	'Ferguson',	NULL,	NULL,	NULL,	'03 9520 4555',	'636 St Kilda Road',	'Melbourne',	'Australia'),

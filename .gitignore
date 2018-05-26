@@ -9,7 +9,7 @@ application/logs/*
 !application/logs/.htaccess
 
 composer.lock
-application/.env
+application/Env.php
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*

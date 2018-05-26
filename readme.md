@@ -26,11 +26,11 @@ Its simple :
 ```bash
 $ git clone https://github.com/jagroop/codeigniter-artisan.git project-name
 $ cd project-name
-$ composer install
-$ cp application/.env.example application/.env
+$ cp application/Env.php.example application/Env.php
 $ touch application/logs/logs.log && chmod 777 application/logs/logs.log
+$ composer install && composer dump-autoload -o
 ```
- - Change configuration in __application/.env__
+ - Change configuration in __application/Env.php__
  - Import the DB __database.sql__
 
 ```bash
